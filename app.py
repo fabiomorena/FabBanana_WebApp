@@ -125,6 +125,8 @@ def text_to_image_endpoint():
 
 # --- Start der App ---
 if __name__ == '__main__':
-    # Starte den Flask-Entwicklungsserver
-    # Für die Produktion wird ein WSGI-Server wie Gunicorn verwendet
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    # Passe den Port für Cloud Run an (wird automatisch gesetzt)
+    # Lokal wird weiterhin 5001 verwendet, wenn PORT nicht gesetzt ist
+    port = int(os.environ.get("PORT", 5001))
+    app.run(host='0.0.0.0', port=port, debug=True)
+
