@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
 <body>
     <div class="app-container">
@@ -27,12 +28,12 @@
                 <button class="mode-button" data-mode="chat" data-prompt="Interaktiver Modus: Gib eine spezifische Anweisung ein...">Chat-Modus</button>
                 <button class="mode-button" data-mode="product_mockup" data-prompt="Füge das Produkt (Bild 1) in die Szene (Bild 2) ein.">Produkt-Mockup</button>
                 <button class="mode-button" data-mode="marketing_asset" data-prompt="Verwandle dieses Bild in ein Marketing-Asset für Social Media.">Marketing-Asset</button>
-                <button class="mode-button" data-mode="batch" data-prompt="Entferne den Hintergrund von allen Bildern (Funktion serverseitig implementieren).">Stapelverarbeitung</button>
+                <button class="mode-button" data-mode="batch" data-prompt="Entferne den Hintergrund von allen Bildern.">Stapelverarbeitung</button>
             </div>
 
             <div class="file-loader">
                 <label for="image-upload" class="upload-button" id="upload-label-1">Hauptbild laden</label>
-                <input type="file" id="image-upload" accept="image/*" hidden>
+                <input type="file" id="image-upload" accept="image/*" hidden multiple>
 
                 <label for="image-upload-2" class="upload-button" id="upload-label-2">Zweites Bild laden</label>
                 <input type="file" id="image-upload-2" accept="image/*" hidden>
@@ -52,6 +53,7 @@
                 </div>
                 <img id="preview-image" src="" alt="Vorschaubild">
                 <div class="loader" id="loader"></div>
+                <div class="progress-text" id="progress-text"></div>
                 <a id="download-link" class="download-button">Bild herunterladen</a>
             </div>
         </main>

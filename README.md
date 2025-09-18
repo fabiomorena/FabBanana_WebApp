@@ -44,7 +44,7 @@ Eine Webanwendung, die das `gemini-2.5-flash-image-preview`-Modell von Google Ge
     ```bash
     flask run
     ```
-    Öffne deinen Browser und gehe zu `http://127.0.0.1:5000`.
+    Öffne deinen Browser und gehe zu `http://127.0.0.1:5001`.
 
 ## Deployment
 
