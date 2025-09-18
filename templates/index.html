@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍌 FabBanana WebApp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="control-panel">
+            <h1 class="title">🍌 FabBanana</h1>
+            <div class="button-group">
+                <button class="mode-button active" data-mode="text_to_image" data-prompt="Ein fotorealistisches Bild von...">Text zu Bild</button>
+                <button class="mode-button" data-mode="uncropping" data-prompt="Erweitere dieses Bild an allen Seiten...">Bild erweitern (Outpaint)</button>
+                <button class="mode-button" data-mode="avatar" data-prompt="Verwandle die Person in einen Avatar im Stil von...">Avatar erstellen</button>
+                <button class="mode-button" data-mode="edit" data-prompt="Bearbeite das Bild...">Bild bearbeiten</button>
+                <button class="mode-button" data-mode="object_removal" data-prompt="Entferne das folgende Objekt: ...">Objekt entfernen</button>
+                <button class="mode-button" data-mode="remove_background" data-prompt="Entferne den Hintergrund.">Hintergrund entfernen</button>
+                <button class="mode-button" data-mode="restore" data-prompt="Restauriere dieses alte Foto.">Bild restaurieren</button>
+                <button class="mode-button" data-mode="upscaling" data-prompt="Skaliere dieses Bild hoch und verbessere die Details.">Bild hochskalieren</button>
+                <button class="mode-button" data-mode="watermark" data-prompt="Platziere das Wasserzeichen (Bild 2) unten rechts...">Wasserzeichen hinzufügen</button>
+                <button class="mode-button" data-mode="style_transfer" data-prompt="Übertrage den Stil von [Künstler/Kunstwerk] auf dieses Bild.">Stil übertragen</button>
+                <button class="mode-button" data-mode="chat" data-prompt="Interaktiver Modus: Gib eine spezifische Anweisung ein...">Chat-Modus</button>
+                <button class="mode-button" data-mode="product_mockup" data-prompt="Füge das Produkt (Bild 1) in die Szene (Bild 2) ein.">Produkt-Mockup</button>
+                <button class="mode-button" data-mode="marketing_asset" data-prompt="Verwandle dieses Bild in ein Marketing-Asset für Social Media.">Marketing-Asset</button>
+                <button class="mode-button" data-mode="batch" data-prompt="Entferne den Hintergrund von allen Bildern (Funktion serverseitig implementieren).">Stapelverarbeitung</button>
+            </div>
+
+            <div class="file-loader">
+                <label for="image-upload" class="upload-button" id="upload-label-1">Hauptbild laden</label>
+                <input type="file" id="image-upload" accept="image/*" hidden>
+
+                <label for="image-upload-2" class="upload-button" id="upload-label-2">Zweites Bild laden</label>
+                <input type="file" id="image-upload-2" accept="image/*" hidden>
+            </div>
+
+            <div class="api-status">API: ✓ Verbunden</div>
+        </aside>
+
+        <main class="workspace">
+            <div class="prompt-area">
+                <textarea id="prompt-input" placeholder="Beschreibe, was du erstellen oder bearbeiten möchtest..."></textarea>
+                <button id="action-button">🚀 Generieren</button>
+            </div>
+            <div class="preview-area" id="preview-area">
+                <div class="placeholder" id="placeholder">
+                    <span>Hier erscheint dein generiertes oder bearbeitetes Bild</span>
+                </div>
+                <img id="preview-image" src="" alt="Vorschaubild">
+                <div class="loader" id="loader"></div>
+                <a id="download-link" class="download-button">Bild herunterladen</a>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
